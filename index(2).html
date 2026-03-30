@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wong Chun Lai — IT Support Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       🎨 顏色設定區 — 你只需要改呢度！
+       改完儲存，刷新瀏覽器就即時睇到效果
+       ============================================================ */
+    :root {
+      --blue: #1d4ed8;        /* 主色（深藍）：按鈕、分隔線 */
+      --blue-light: #2563eb;  /* 淺藍：標題標籤、hover 效果 */
+      --blue-pale: #1d4ed8;   /* 更淺藍：標籤文字 */
+      --bg: #ffffff;          /* 🖼️ 主背景色（白底）*/
+      --bg2: #f0f4ff;         /* 副背景色（交替 section，淡藍白）*/
+      --text: #1a202c;        /* 主要文字顏色（深色）*/
+      --muted: #4a5568;       /* 次要文字顏色（描述段落）*/
+      --faint: #a0aec0;       /* 極淡文字（標籤 label）*/
+      --border: rgba(29,78,216,0.2); /* 導航欄底線顏色 */
+      --card-bg: rgba(255,255,255,0.75); /* 卡片/內容區背景（半透明白）*/
+      --overlay: rgba(255,255,255,0.82); /* 背景圖疊加層透明度 */
+    }
+
+    /* ============================================================
+       🖼️ 背景圖設定教學
+       ============================================================
+
+       第一步：把你的背景圖片放在跟 index.html 同一個資料夾
+               建議圖片命名為 bg.jpg（或 bg.png）
+
+       第二步：在下面 body { } 入面，
+               把這行：  background: var(--bg);
+               改成：    background: url('bg.jpg') center/cover fixed;
+
+       第三步（推薦）：加半透明白色疊加，令文字更易閱讀：
+               background: linear-gradient(var(--overlay), var(--overlay)),
+                           url('bg.jpg') center/cover fixed;
+
+       💡 調整透明度：改 --overlay 的數值
+               rgba(255,255,255,0.70) = 70% 白色遮罩（圖片更明顯）
+               rgba(255,255,255,0.90) = 90% 白色遮罩（圖片較淡）
+
+       ============================================================ */
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      /* 🖼️ 純白底（預設）
+         想換背景圖？按照上面教學改呢行 */
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 200;
+      padding: .85rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 12px rgba(29,78,216,0.08);
+    }
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px; letter-spacing: .18em; color: var(--blue);
+      text-transform: uppercase; text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 12px; color: #64748b; text-decoration: none;
+      letter-spacing: .07em; text-transform: uppercase; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--blue); border-radius: 2px; transition: all .3s; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 7rem 2.5rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-stripe { position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: var(--blue); }
+    .hero-dot-grid {
+      position: absolute; inset: 0; pointer-events: none; opacity: .06;
+      background-image: radial-gradient(circle, var(--blue) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+    .hero-glow {
+      position: absolute; top: 12%; right: 6%; width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(29,78,216,.08) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-tag {
+      font-family: 'Space Mono', monospace; font-size: 11px;
+      color: var(--blue); letter-spacing: .22em; text-transform: uppercase;
+      margin-bottom: 1.4rem;
+      opacity: 0; animation: fadeUp .6s .1s forwards;
+    }
+    .hero-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(3.8rem, 9vw, 7rem);
+      font-weight: 700; line-height: 1; color: #0f172a;
+      letter-spacing: .03em; margin-bottom: .3rem;
+      opacity: 0; animation: fadeUp .6s .25s forwards;
+    }
+    .hero-name .blue { color: var(--blue); }
+    .hero-title-bar {
+      display: inline-block; background: var(--blue);
+      padding: .35rem 1.2rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px; letter-spacing: .12em; color: #fff;
+      text-transform: uppercase; margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp .6s .4s forwards;
+    }
+    .hero-desc {
+      max-width: 520px; font-size: 15px; line-height: 1.9;
+      color: var(--muted); margin-bottom: 2.5rem; font-weight: 300;
+      opacity: 0; animation: fadeUp .6s .55s forwards;
+    }
+    .hero-btns {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp .6s .7s forwards;
+    }
+    .btn-p {
+      padding: .7rem 2rem; background: var(--blue); color: #fff;
+      font-size: 12px; font-weight: 600; border: none; cursor: pointer;
+      letter-spacing: .1em; text-transform: uppercase; border-radius: 2px;
+      font-family: 'Barlow', sans-serif; transition: background .2s;
+      text-decoration: none; display: inline-block;
+    }
+    .btn-p:hover { background: var(--blue-light); }
+    .btn-g {
+      padding: .7rem 2rem; background: transparent; color: var(--blue-light);
+      font-size: 12px; font-weight: 600; cursor: pointer;
+      border: 1px solid rgba(59,130,246,.4); letter-spacing: .1em;
+      text-transform: uppercase; border-radius: 2px;
+      font-family: 'Barlow', sans-serif; transition: all .2s;
+      text-decoration: none; display: inline-block;
+    }
+    .btn-g:hover { background: rgba(59,130,246,.08); border-color: var(--blue-light); }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2.5rem; }
+    .alt-bg { background: var(--bg2); }
+    .sec-label {
+      font-family: 'Space Mono', monospace; font-size: 10px;
+      letter-spacing: .25em; color: var(--blue);
+      text-transform: uppercase; margin-bottom: .5rem;
+    }
+    .sec-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700; color: #0f172a;
+      letter-spacing: .04em; text-transform: uppercase; margin-bottom: .5rem;
+    }
+    .sec-divider { width: 40px; height: 3px; background: var(--blue); margin-bottom: 2.5rem; }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+    .about-text { font-size: 14px; line-height: 2; color: var(--muted); font-weight: 300; }
+    .about-text p { margin-bottom: 1rem; }
+    .skills-wrap { display: flex; flex-direction: column; gap: 1rem; }
+    .skill-row { display: flex; flex-direction: column; gap: 6px; }
+    .skill-name { font-size: 12px; color: #334155; font-family: 'Space Mono', monospace; }
+    .skill-bar { height: 3px; background: rgba(29,78,216,.1); border-radius: 2px; overflow: hidden; }
+    .skill-fill { height: 100%; background: var(--blue); border-radius: 2px; width: 0; transition: width 1.2s ease; }
+    .lang-row { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .lang-badge {
+      padding: .3rem .9rem; border: 1px solid rgba(29,78,216,.3);
+      border-radius: 2px; font-size: 11px; color: var(--blue);
+      font-family: 'Space Mono', monospace; letter-spacing: .06em;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; }
+    .exp-item {
+      display: grid; grid-template-columns: 170px 1fr;
+      gap: 2rem; padding: 2.2rem 0;
+      border-bottom: 1px solid rgba(29,78,216,.08);
+    }
+    .exp-date { font-family: 'Space Mono', monospace; font-size: 11px; color: #94a3b8; line-height: 1.8; padding-top: 3px; }
+    .exp-co { font-size: 11px; color: var(--blue); font-family: 'Space Mono', monospace; letter-spacing: .07em; text-transform: uppercase; margin-bottom: .3rem; }
+    .exp-role { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; color: #0f172a; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin-bottom: .6rem; }
+    .exp-desc { font-size: 13px; color: var(--muted); line-height: 1.9; font-weight: 300; }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
+    .exp-tag {
+      padding: .2rem .65rem;
+      background: rgba(29,78,216,.07); border: 1px solid rgba(29,78,216,.2);
+      border-radius: 2px; font-size: 11px; color: var(--blue);
+      font-family: 'Space Mono', monospace;
+    }
+
+    /* ── PROJECTS ── */
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
+    .proj-card {
+      background: #ffffff;
+      border: 1px solid rgba(29,78,216,.15);
+      border-left: 3px solid var(--blue);
+      border-radius: 2px; padding: 1.8rem;
+      transition: background .2s, border-color .2s, box-shadow .2s; cursor: default;
+      box-shadow: 0 2px 8px rgba(29,78,216,.06);
+    }
+    .proj-card:hover { background: #f0f4ff; border-color: rgba(29,78,216,.35); box-shadow: 0 4px 16px rgba(29,78,216,.1); }
+    .proj-num { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--blue); letter-spacing: .2em; margin-bottom: .8rem; }
+    .proj-name { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; color: #0f172a; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin-bottom: .6rem; }
+    .proj-desc { font-size: 12px; color: var(--muted); line-height: 1.85; font-weight: 300; }
+
+    /* ── CONTACT ── */
+    .contact-box {
+      max-width: 560px;
+      background: #ffffff; border: 1px solid rgba(29,78,216,.2);
+      border-radius: 2px; padding: 2.5rem;
+      box-shadow: 0 2px 12px rgba(29,78,216,.07);
+    }
+    .contact-desc { font-size: 14px; color: var(--muted); line-height: 1.9; margin-bottom: 1.8rem; font-weight: 300; }
+    .clink {
+      display: flex; align-items: center; gap: 1rem;
+      padding: .75rem 0; border-bottom: 1px solid rgba(29,78,216,.1);
+      font-family: 'Space Mono', monospace; font-size: 12px;
+      color: var(--blue); text-decoration: none; transition: opacity .2s;
+    }
+    .clink:hover { opacity: .65; }
+    .clabel { color: var(--faint); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; width: 70px; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1.8rem 2.5rem;
+      border-top: 1px solid rgba(29,78,216,.1);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+      background: #f8faff;
+    }
+    .fcopy { font-family: 'Space Mono', monospace; font-size: 10px; color: #94a3b8; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: .85rem 1.5rem; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255,255,255,0.98); padding: 1.5rem; gap: 1.2rem; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(29,78,216,.08); }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+      .hero { padding: 6rem 1.5rem 3rem; }
+      section { padding: 3.5rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .exp-item { grid-template-columns: 1fr; gap: .5rem; }
+      footer { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     ✏️ 內容修改指南
+     用 VS Code 或記事本打開此檔案，搜尋以下關鍵字直接改：
+
+     【個人資料】搜尋 "WONG CHUN LAI"          改你的名字
+     【職稱】    搜尋 "IT Support Engineer"     改你的職位
+     【電郵】    搜尋 "chunlai051572@gmail"     改你的電郵
+     【電話】    搜尋 "6418 3794"               改你的電話
+     【工作描述】搜尋 "exp-desc"                改工作內容
+     【技能%】   搜尋 'data-width="'            改技能百分比 (0-100)
+     【背景顏色】搜尋 "--bg:"                   改背景色
+     【背景圖片】搜尋 "方案B" 或 "方案C"        睇教學加背景圖
+     ============================================================ -->
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#home">WONG CHUN LAI</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+    <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-stripe"></div>
+  <div class="hero-dot-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-tag">// IT Support Engineer · Supervisor · 6+ Years</div>
+    <div class="hero-name">WONG<br><span class="blue">CHUN LAI</span></div>
+    <div class="hero-title-bar">IT Support Engineer / Supervisor</div>
+    <p class="hero-desc">
+      Over 6 years of experience managing and maintaining company IT infrastructure, supporting offices and shops across Hong Kong, Singapore, and China. Proficient in Linux &amp; Windows environments, network configuration, and leading key IT projects.
+    </p>
+    <div class="hero-btns">
+      <a class="btn-p" href="#experience">View Experience</a>
+      <a class="btn-g" href="/cdn-cgi/l/email-protection#b9dad1ccd7d5d8d0898c888c8e8bf9ded4d8d0d597dad6d4"><span class="__cf_email__" data-cfemail="6e0d061b00020f075e5b5f5b595c2e09030f0702400d0103">[email&#160;protected]</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="alt-bg">
+  <div class="sec-label">// About</div>
+  <h2 class="sec-title">Skills &amp; Profile</h2>
+  <div class="sec-divider"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>A dedicated IT Support Engineer with 6+ years of hands-on experience in enterprise IT infrastructure. I specialise in Linux and Windows server environments, network troubleshooting, and cross-regional IT project delivery across Hong Kong, Singapore, and China.</p>
+      <p>Proven ability to lead full-scale IT setups for new branches, implement surveillance systems, and manage end-user support at scale — all while keeping business operations running smoothly.</p>
+      <div class="lang-row">
+        <span class="lang-badge">Cantonese — Excellent</span>
+        <span class="lang-badge">Putonghua — Excellent</span>
+        <span class="lang-badge">English — Good</span>
+      </div>
+    </div>
+    <div class="skills-wrap">
+      <div class="skill-row">
+        <span class="skill-name">Linux (Ubuntu, CentOS)</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Windows Server &amp; Active Directory</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Network Config (TCP/IP, DNS, DHCP, iptables)</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">ZeroTier VPN Setup</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Desktop Support &amp; Troubleshooting</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Microsoft Office &amp; Collaboration Tools</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-label">// Experience</div>
+  <h2 class="sec-title">Work History</h2>
+  <div class="sec-divider"></div>
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-date">Mar 2018<br>— Present</div>
+      <div>
+        <div class="exp-co">Modern Beauty Salon (HK) Ltd.</div>
+        <div class="exp-role">Technical Support Engineer / Supervisor</div>
+        <div class="exp-desc">
+          Provide daily technical support and server maintenance for the company's IT infrastructure. Support offices and shops across Hong Kong, Singapore, and China. Maintain network drives and system backups, monitor network health, and troubleshoot TCP/IP, DNS, and DHCP issues. Manage users and access permissions via Active Directory. Led and participated in multiple company-wide IT projects.
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Linux Shinobi CCTV</span>
+          <span class="exp-tag">E-Signature Rollout</span>
+          <span class="exp-tag">New Branch IT Setup</span>
+          <span class="exp-tag">Windows 10 Upgrade</span>
+          <span class="exp-tag">Active Directory</span>
+          <span class="exp-tag">ZeroTier VPN</span>
+        </div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">Oct 2017<br>— Mar 2018</div>
+      <div>
+        <div class="exp-co">Net Printshop Limited</div>
+        <div class="exp-role">Technician</div>
+        <div class="exp-desc">
+          Provided hardware and software support for daily operations. Assisted in printer maintenance, system setup, and troubleshooting across the production environment.
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Hardware Support</span>
+          <span class="exp-tag">System Setup</span>
+          <span class="exp-tag">Troubleshooting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="alt-bg">
+  <div class="sec-label">// Key Projects</div>
+  <h2 class="sec-title">IT Projects Led</h2>
+  <div class="sec-divider"></div>
+  <div class="proj-grid">
+    <div class="proj-card">
+      <div class="proj-num">01 · LINUX / SURVEILLANCE</div>
+      <div class="proj-name">Linux Shinobi CCTV System</div>
+      <div class="proj-desc">Deployed and configured a Linux-based enterprise surveillance system across multiple offices and retail branches.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">02 · DIGITALISATION</div>
+      <div class="proj-name">Tablet E-Signature System</div>
+      <div class="proj-desc">Rolled out a tablet-based digital signature solution to replace paper-based workflows across all locations.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">03 · INFRASTRUCTURE</div>
+      <div class="proj-name">New Branch Full IT Setup</div>
+      <div class="proj-desc">Led end-to-end IT setup for new branch openings, including network configuration, end-user devices, and shop systems.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">04 · UPGRADE</div>
+      <div class="proj-name">Windows 10 Upgrade Project</div>
+      <div class="proj-desc">Managed the company-wide upgrade of workstations across offices and shops from legacy OS to Windows 10 with zero business disruption.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="sec-label">// Education</div>
+  <h2 class="sec-title">Academic Background</h2>
+  <div class="sec-divider"></div>
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-date">2013 — 2017</div>
+      <div>
+        <div class="exp-co">Fujian Normal University</div>
+        <div class="exp-role">Bachelor of Psychology (Honours)</div>
+        <div class="exp-desc">Assessed at Level 5 (Bachelor Honours Degree) by HKCAAVQ on 8 Sep 2017.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">2006 — 2011</div>
+      <div>
+        <div class="exp-co">Tuen Mun Catholic Secondary School</div>
+        <div class="exp-role">HKDSE</div>
+        <div class="exp-desc">Completed Hong Kong Diploma of Secondary Education.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="alt-bg">
+  <div class="sec-label">// Contact</div>
+  <h2 class="sec-title">Get In Touch</h2>
+  <div class="sec-divider"></div>
+  <div class="contact-box">
+    <p class="contact-desc">
+      Currently open to new IT opportunities — full-time roles in IT Support, System Administration, or Infrastructure Management. Feel free to reach out anytime.
+    </p>
+    <div>
+      <a class="clink" href="/cdn-cgi/l/email-protection#e88b809d86848981d8ddd9dddfdaa88f85898184c68b8785">
+        <span class="clabel">Email</span>
+        <span class="__cf_email__" data-cfemail="beddd6cbd0d2dfd78e8b8f8b898cfed9d3dfd7d290ddd1d3">[email&#160;protected]</span>
+      </a>
+      <a class="clink" href="tel:+85264183794">
+        <span class="clabel">Phone</span>
+        6418 3794
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="fcopy">© 2026 · WONG CHUN LAI · IT Support Engineer</span>
+  <span class="fcopy">BASED IN HONG KONG</span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  function closeMenu() { links.classList.remove('open'); }
+
+  // Skill bar animation on scroll
+  const fills
