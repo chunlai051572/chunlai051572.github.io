@@ -7,14 +7,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     /* ============================================================
-       🎨 顏色設定區 — 你只需要改呢度！
+       ?? 顏色設定區 — 你只需要改呢度！
        改完儲存，刷新瀏覽器就即時睇到效果
        ============================================================ */
     :root {
       --blue: #1d4ed8;        /* 主色（深藍）：按鈕、分隔線 */
       --blue-light: #2563eb;  /* 淺藍：標題標籤、hover 效果 */
       --blue-pale: #1d4ed8;   /* 更淺藍：標籤文字 */
-      --bg: #ffffff;          /* 🖼️ 主背景色（白底）*/
+      --bg: #ffffff;          /* ??? 主背景色（白底）*/
       --bg2: #f0f4ff;         /* 副背景色（交替 section，淡藍白）*/
       --text: #1a202c;        /* 主要文字顏色（深色）*/
       --muted: #4a5568;       /* 次要文字顏色（描述段落）*/
@@ -25,7 +25,7 @@
     }
 
     /* ============================================================
-       🖼️ 背景圖設定教學
+       ??? 背景圖設定教學
        ============================================================
 
        第一步：把你的背景圖片放在跟 index.html 同一個資料夾
@@ -39,7 +39,7 @@
                background: linear-gradient(var(--overlay), var(--overlay)),
                            url('bg.jpg') center/cover fixed;
 
-       💡 調整透明度：改 --overlay 的數值
+       ?? 調整透明度：改 --overlay 的數值
                rgba(255,255,255,0.70) = 70% 白色遮罩（圖片更明顯）
                rgba(255,255,255,0.90) = 90% 白色遮罩（圖片較淡）
 
@@ -48,7 +48,7 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      /* 🖼️ 純白底（預設）
+      /* ??? 純白底（預設）
          想換背景圖？按照上面教學改呢行 */
       background: var(--bg);
       color: var(--text);
@@ -264,7 +264,7 @@
 <body>
 
 <!-- ============================================================
-     ✏️ 內容修改指南
+     ?? 內容修改指南
      用 VS Code 或記事本打開此檔案，搜尋以下關鍵字直接改：
 
      【個人資料】搜尋 "WONG CHUN LAI"          改你的名字
@@ -284,6 +284,7 @@
     <li><a href="#about" onclick="closeMenu()">About</a></li>
     <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
     <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+    <li><a href="#education" onclick="closeMenu()">Education</a></li>
     <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Menu">
@@ -304,8 +305,8 @@
       Over 6 years of experience managing and maintaining company IT infrastructure, supporting offices and shops across Hong Kong, Singapore, and China. Proficient in Linux &amp; Windows environments, network configuration, and leading key IT projects.
     </p>
     <div class="hero-btns">
-      <a class="btn-p" href="#experience">View Experience</a>
-      <a class="btn-g" href="mailto:chunlai051572@gmail.com">chunlai051572@gmail.com</a>
+      <a class="btn-p" href="#about">About Me</a>
+      <a class="btn-g" href="#contact">Get In Touch</a>
     </div>
   </div>
 </section>
@@ -317,8 +318,8 @@
   <div class="sec-divider"></div>
   <div class="about-grid">
     <div class="about-text">
-      <p>A dedicated IT Support Engineer with 6+ years of hands-on experience in enterprise IT infrastructure. I specialise in Linux and Windows server environments, network troubleshooting, and cross-regional IT project delivery across Hong Kong, Singapore, and China.</p>
-      <p>Proven ability to lead full-scale IT setups for new branches, implement surveillance systems, and manage end-user support at scale — all while keeping business operations running smoothly.</p>
+      <p>A dedicated IT Support Engineer with 6+ years of hands-on experience in enterprise IT infrastructure. I specialise in Linux and Windows server environments, NAS/storage management, containerisation, and cross-regional IT project delivery across Hong Kong, Singapore, and China.</p>
+      <p>Experienced in managing RAID 6 arrays (including disk failure rebuilding), deploying Docker-based services such as Nextcloud and WordPress, and configuring SMB/CIFS and WebDAV for cross-platform file sharing. Proven ability to lead full-scale IT setups and keep business operations running smoothly.</p>
       <div class="lang-row">
         <span class="lang-badge">Cantonese — Excellent</span>
         <span class="lang-badge">Putonghua — Excellent</span>
@@ -337,6 +338,14 @@
       <div class="skill-row">
         <span class="skill-name">Network Config (TCP/IP, DNS, DHCP, iptables)</span>
         <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">NAS &amp; Storage (OMV, RAID 6, SMB/CIFS, WebDAV)</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Docker (Nextcloud, WordPress)</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
       </div>
       <div class="skill-row">
         <span class="skill-name">ZeroTier VPN Setup</span>
@@ -366,10 +375,16 @@
         <div class="exp-co">Modern Beauty Salon (HK) Ltd.</div>
         <div class="exp-role">Technical Support Engineer / Supervisor</div>
         <div class="exp-desc">
-          Provide daily technical support and server maintenance for the company's IT infrastructure. Support offices and shops across Hong Kong, Singapore, and China. Maintain network drives and system backups, monitor network health, and troubleshoot TCP/IP, DNS, and DHCP issues. Manage users and access permissions via Active Directory. Led and participated in multiple company-wide IT projects.
+          Provide daily technical support and server maintenance for the company's IT infrastructure across Hong Kong, Singapore, and China. Manage NAS systems using OpenMediaVault (OMV), including RAID 6 array administration and disk failure rebuilding. Configure SMB/CIFS for cross-platform file sharing and WebDAV for mobile device access. Deploy and maintain Docker-based services including Nextcloud private cloud and WordPress. Monitor network health and troubleshoot TCP/IP, DNS, and DHCP issues. Manage users and access permissions via Active Directory.
         </div>
         <div class="exp-tags">
           <span class="exp-tag">Linux Shinobi CCTV</span>
+          <span class="exp-tag">OpenMediaVault</span>
+          <span class="exp-tag">RAID 6</span>
+          <span class="exp-tag">Docker</span>
+          <span class="exp-tag">Nextcloud</span>
+          <span class="exp-tag">WordPress</span>
+          <span class="exp-tag">SMB/CIFS &amp; WebDAV</span>
           <span class="exp-tag">E-Signature Rollout</span>
           <span class="exp-tag">New Branch IT Setup</span>
           <span class="exp-tag">Windows 10 Upgrade</span>
@@ -408,17 +423,27 @@
       <div class="proj-desc">Deployed and configured a Linux-based enterprise surveillance system across multiple offices and retail branches.</div>
     </div>
     <div class="proj-card">
-      <div class="proj-num">02 · DIGITALISATION</div>
+      <div class="proj-num">02 · NAS &amp; STORAGE</div>
+      <div class="proj-name">OpenMediaVault NAS Setup</div>
+      <div class="proj-desc">Built and managed an OMV-based NAS with RAID 6 arrays, handling disk failure rebuilding, and configured SMB/CIFS and WebDAV for cross-platform and mobile file access.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">03 · CONTAINERISATION</div>
+      <div class="proj-name">Docker Private Cloud</div>
+      <div class="proj-desc">Deployed Nextcloud private cloud and WordPress via Docker, managing database connections, backup strategies, and security configurations.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">04 · DIGITALISATION</div>
       <div class="proj-name">Tablet E-Signature System</div>
       <div class="proj-desc">Rolled out a tablet-based digital signature solution to replace paper-based workflows across all locations.</div>
     </div>
     <div class="proj-card">
-      <div class="proj-num">03 · INFRASTRUCTURE</div>
+      <div class="proj-num">05 · INFRASTRUCTURE</div>
       <div class="proj-name">New Branch Full IT Setup</div>
       <div class="proj-desc">Led end-to-end IT setup for new branch openings, including network configuration, end-user devices, and shop systems.</div>
     </div>
     <div class="proj-card">
-      <div class="proj-num">04 · UPGRADE</div>
+      <div class="proj-num">06 · UPGRADE</div>
       <div class="proj-name">Windows 10 Upgrade Project</div>
       <div class="proj-desc">Managed the company-wide upgrade of workstations across offices and shops from legacy OS to Windows 10 with zero business disruption.</div>
     </div>
@@ -460,30 +485,6 @@
       Currently open to new IT opportunities — full-time roles in IT Support, System Administration, or Infrastructure Management. Feel free to reach out anytime.
     </p>
     <div>
-      <a class="clink" href="mailto:chunlai051572@gmail.com">
+      <a class="clink" href="/cdn-cgi/l/email-protection#fc9f948992909d95ccc9cdc9cbcebc9b919d9590d29f9391">
         <span class="clabel">Email</span>
-        chunlai051572@gmail.com
-      </a>
-      <a class="clink" href="tel:+85264183794">
-        <span class="clabel">Phone</span>
-        6418 3794
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <span class="fcopy">© 2026 · WONG CHUN LAI · IT Support Engineer</span>
-  <span class="fcopy">BASED IN HONG KONG</span>
-</footer>
-
-<script>
-  // Mobile menu
-  const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => links.classList.toggle('open'));
-  function closeMenu() { links.classList.remove('open'); }
-
-  // Skill bar animation on scroll
-  const fills
+        <span class
