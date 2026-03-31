@@ -7,14 +7,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     /* ============================================================
-       ?? 顏色設定區 — 你只需要改呢度！
+       🎨 顏色設定區 — 你只需要改呢度！
        改完儲存，刷新瀏覽器就即時睇到效果
        ============================================================ */
     :root {
       --blue: #1d4ed8;        /* 主色（深藍）：按鈕、分隔線 */
       --blue-light: #2563eb;  /* 淺藍：標題標籤、hover 效果 */
       --blue-pale: #1d4ed8;   /* 更淺藍：標籤文字 */
-      --bg: #ffffff;          /* ??? 主背景色（白底）*/
+      --bg: #ffffff;          /* 🖼️ 主背景色（白底）*/
       --bg2: #f0f4ff;         /* 副背景色（交替 section，淡藍白）*/
       --text: #1a202c;        /* 主要文字顏色（深色）*/
       --muted: #4a5568;       /* 次要文字顏色（描述段落）*/
@@ -25,7 +25,7 @@
     }
 
     /* ============================================================
-       ??? 背景圖設定教學
+       🖼️ 背景圖設定教學
        ============================================================
 
        第一步：把你的背景圖片放在跟 index.html 同一個資料夾
@@ -39,7 +39,7 @@
                background: linear-gradient(var(--overlay), var(--overlay)),
                            url('bg.jpg') center/cover fixed;
 
-       ?? 調整透明度：改 --overlay 的數值
+       💡 調整透明度：改 --overlay 的數值
                rgba(255,255,255,0.70) = 70% 白色遮罩（圖片更明顯）
                rgba(255,255,255,0.90) = 90% 白色遮罩（圖片較淡）
 
@@ -48,7 +48,7 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      /* ??? 純白底（預設）
+      /* 🖼️ 純白底（預設）
          想換背景圖？按照上面教學改呢行 */
       background: var(--bg);
       color: var(--text);
@@ -264,7 +264,7 @@
 <body>
 
 <!-- ============================================================
-     ?? 內容修改指南
+     ✏️ 內容修改指南
      用 VS Code 或記事本打開此檔案，搜尋以下關鍵字直接改：
 
      【個人資料】搜尋 "WONG CHUN LAI"          改你的名字
@@ -286,6 +286,7 @@
     <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
     <li><a href="#education" onclick="closeMenu()">Education</a></li>
     <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    <li><a href="photos.html" onclick="closeMenu()">Life</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -298,7 +299,7 @@
   <div class="hero-dot-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
-    <div class="hero-tag">// IT Support Engineer · Supervisor · 8 Years</div>
+    <div class="hero-tag">// IT Support Engineer · Supervisor · 6+ Years</div>
     <div class="hero-name">WONG<br><span class="blue">CHUN LAI</span></div>
     <div class="hero-title-bar">IT Support Engineer / Supervisor</div>
     <p class="hero-desc">
@@ -485,9 +486,9 @@
       Currently open to new IT opportunities — full-time roles in IT Support, System Administration, or Infrastructure Management. Feel free to reach out anytime.
     </p>
     <div>
-      <a class="clink" href="mailto:chunlai051572@gmail.com">
+      <a class="clink" href="/cdn-cgi/l/email-protection#9efdf6ebf0f2fff7aeabafaba9acdef9f3fff7f2b0fdf1f3">
         <span class="clabel">Email</span>
-        chunlai051572@gmail.com
+        <span class="__cf_email__" data-cfemail="f6959e83989a979fc6c3c7c3c1c4b6919b979f9ad895999b">[email&#160;protected]</span>
       </a>
       <a class="clink" href="tel:+85264183794">
         <span class="clabel">Phone</span>
@@ -499,11 +500,11 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="fcopy">c 2026 · WONG CHUN LAI · IT Support Engineer</span>
+  <span class="fcopy">© 2026 · WONG CHUN LAI · IT Support Engineer</span>
   <span class="fcopy">BASED IN HONG KONG</span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Mobile menu
   const toggle = document.getElementById('navToggle');
   const links  = document.getElementById('navLinks');
@@ -514,14 +515,4 @@
   const fills = document.querySelectorAll('.skill-fill');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        el.style.width = el.dataset.width + '%';
-        observer.unobserve(el);
-      }
-    });
-  }, { threshold: 0.3 });
-  fills.forEach(f => observer.observe(f));
-</script>
-</body>
-</html>
+      i
