@@ -485,9 +485,9 @@
       Currently open to new IT opportunities — full-time roles in IT Support, System Administration, or Infrastructure Management. Feel free to reach out anytime.
     </p>
     <div>
-      <a class="clink" href="/cdn-cgi/l/email-protection#fc9f948992909d95ccc9cdc9cbcebc9b919d9590d29f9391">
+      <a class="clink" href="mailto:chunlai051572@gmail.com">
         <span class="clabel">Email</span>
-        <span class="__cf_email__" data-cfemail="5d3e352833313c346d686c686a6f1d3a303c3431733e3230">[email&#160;protected]</span>
+        chunlai051572@gmail.com
       </a>
       <a class="clink" href="tel:+85264183794">
         <span class="clabel">Phone</span>
@@ -503,4 +503,25 @@
   <span class="fcopy">BASED IN HONG KONG</span>
 </footer>
 
-<script data-cfasync="false" sr
+<script>
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  function closeMenu() { links.classList.remove('open'); }
+
+  // Skill bar animation on scroll
+  const fills = document.querySelectorAll('.skill-fill');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.style.width = el.dataset.width + '%';
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+  fills.forEach(f => observer.observe(f));
+</script>
+</body>
+</html>
