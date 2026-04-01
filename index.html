@@ -33,13 +33,13 @@
 
        第二步：在下面 body { } 入面，
                把這行：  background: var(--bg);
-               改成：    background: url('bg.jpg') center/c fixed;
+               改成：    background: url('bg.jpg') center/cover fixed;
 
        第三步（推薦）：加半透明白色疊加，令文字更易閱讀：
-               background: linear-gradient(var(--lay), var(--lay)),
-                           url('bg.jpg') center/c fixed;
+               background: linear-gradient(var(--overlay), var(--overlay)),
+                           url('bg.jpg') center/cover fixed;
 
-       💡 調整透明度：改 --lay 的數值
+       💡 調整透明度：改 --overlay 的數值
                rgba(255,255,255,0.70) = 70% 白色遮罩（圖片更明顯）
                rgba(255,255,255,0.90) = 90% 白色遮罩（圖片較淡）
 
@@ -53,7 +53,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'Barlow', sans-serif;
-      flow-x: hidden;
+      overflow-x: hidden;
     }
 
     /* ── NAV ── */
@@ -76,7 +76,7 @@
       font-size: 12px; color: #64748b; text-decoration: none;
       letter-spacing: .07em; text-transform: uppercase; transition: color .2s;
     }
-    .nav-links a:h { color: var(--blue); }
+    .nav-links a:hover { color: var(--blue); }
     .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
     .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--blue); border-radius: 2px; transition: all .3s; }
 
@@ -85,7 +85,7 @@
       min-height: 100vh;
       display: flex; align-items: center;
       padding: 7rem 2.5rem 4rem;
-      position: relative; flow: hidden;
+      position: relative; overflow: hidden;
     }
     .hero-stripe { position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: var(--blue); }
     .hero-dot-grid {
@@ -138,7 +138,7 @@
       font-family: 'Barlow', sans-serif; transition: background .2s;
       text-decoration: none; display: inline-block;
     }
-    .btn-p:h { background: var(--blue-light); }
+    .btn-p:hover { background: var(--blue-light); }
     .btn-g {
       padding: .7rem 2rem; background: transparent; color: var(--blue-light);
       font-size: 12px; font-weight: 600; cursor: pointer;
@@ -147,7 +147,7 @@
       font-family: 'Barlow', sans-serif; transition: all .2s;
       text-decoration: none; display: inline-block;
     }
-    .btn-g:h { background: rgba(59,130,246,.08); border-color: var(--blue-light); }
+    .btn-g:hover { background: rgba(59,130,246,.08); border-color: var(--blue-light); }
 
     /* ── SECTIONS ── */
     section { padding: 5rem 2.5rem; }
@@ -172,7 +172,7 @@
     .skills-wrap { display: flex; flex-direction: column; gap: 1rem; }
     .skill-row { display: flex; flex-direction: column; gap: 6px; }
     .skill-name { font-size: 12px; color: #334155; font-family: 'Space Mono', monospace; }
-    .skill-bar { height: 3px; background: rgba(29,78,216,.1); border-radius: 2px; flow: hidden; }
+    .skill-bar { height: 3px; background: rgba(29,78,216,.1); border-radius: 2px; overflow: hidden; }
     .skill-fill { height: 100%; background: var(--blue); border-radius: 2px; width: 0; transition: width 1.2s ease; }
     .lang-row { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.5rem; }
     .lang-badge {
@@ -210,7 +210,7 @@
       transition: background .2s, border-color .2s, box-shadow .2s; cursor: default;
       box-shadow: 0 2px 8px rgba(29,78,216,.06);
     }
-    .proj-card:h { background: #f0f4ff; border-color: rgba(29,78,216,.35); box-shadow: 0 4px 16px rgba(29,78,216,.1); }
+    .proj-card:hover { background: #f0f4ff; border-color: rgba(29,78,216,.35); box-shadow: 0 4px 16px rgba(29,78,216,.1); }
     .proj-num { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--blue); letter-spacing: .2em; margin-bottom: .8rem; }
     .proj-name { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; color: #0f172a; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin-bottom: .6rem; }
     .proj-desc { font-size: 12px; color: var(--muted); line-height: 1.85; font-weight: 300; }
@@ -229,7 +229,7 @@
       font-family: 'Space Mono', monospace; font-size: 12px;
       color: var(--blue); text-decoration: none; transition: opacity .2s;
     }
-    .clink:h { opacity: .65; }
+    .clink:hover { opacity: .65; }
     .clabel { color: var(--faint); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; width: 70px; flex-shrink: 0; }
 
     /* ── FOOTER ── */
@@ -299,11 +299,11 @@
   <div class="hero-dot-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
-    <div class="hero-tag">// IT Support Engineer · Supervisor · 8 Years</div>
+    <div class="hero-tag">// IT Support Engineer · Supervisor · 6+ Years</div>
     <div class="hero-name">WONG<br><span class="blue">CHUN LAI</span></div>
     <div class="hero-title-bar">IT Support Engineer / Supervisor</div>
     <p class="hero-desc">
-       HI, welcome to my personal website. I have 8 years of experience managing and maintaining company IT infrastructure, supporting offices and shops across Hong Kong, Singapore, and China. Proficient in Linux &amp; Windows environments, network configuration, and leading key IT projects.
+      Over 6 years of experience managing and maintaining company IT infrastructure, supporting offices and shops across Hong Kong, Singapore, and China. Proficient in Linux &amp; Windows environments, network configuration, and leading key IT projects.
     </p>
     <div class="hero-btns">
       <a class="btn-p" href="#about">About Me</a>
@@ -319,7 +319,7 @@
   <div class="sec-divider"></div>
   <div class="about-grid">
     <div class="about-text">
-      <p>A dedicated IT Support Engineer with 8 years of hands-on experience in enterprise IT infrastructure. I specialise in Linux and Windows server environments, NAS/storage management, containerisation, and cross-regional IT project delivery across Hong Kong, Singapore, and China.</p>
+      <p>A dedicated IT Support Engineer with 6+ years of hands-on experience in enterprise IT infrastructure. I specialise in Linux and Windows server environments, NAS/storage management, containerisation, and cross-regional IT project delivery across Hong Kong, Singapore, and China.</p>
       <p>Experienced in managing RAID 6 arrays (including disk failure rebuilding), deploying Docker-based services such as Nextcloud and WordPress, and configuring SMB/CIFS and WebDAV for cross-platform file sharing. Proven ability to lead full-scale IT setups and keep business operations running smoothly.</p>
       <div class="lang-row">
         <span class="lang-badge">Cantonese — Excellent</span>
@@ -488,7 +488,7 @@
     <div>
       <a class="clink" href="mailto:chunlai051572@gmail.com">
         <span class="clabel">Email</span>
-        <span>chunlai051572@gmail.com</span>
+        chunlai051572@gmail.com
       </a>
       <a class="clink" href="tel:+85264183794">
         <span class="clabel">Phone</span>
@@ -504,7 +504,7 @@
   <span class="fcopy">BASED IN HONG KONG</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Mobile menu
   const toggle = document.getElementById('navToggle');
   const links  = document.getElementById('navLinks');
@@ -515,4 +515,14 @@
   const fills = document.querySelectorAll('.skill-fill');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      i
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.style.width = el.dataset.width + '%';
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+  fills.forEach(f => observer.observe(f));
+</script>
+</body>
+</html>
