@@ -311,10 +311,12 @@
     -->
 
     <!-- 未加相片前顯示的格子（加咗相片就刪走呢啲） -->
-    <div class="photo-placeholder">
-      <div class="plus">+</div>
-      <div class="ph-text">Add<br>Photo</div>
-    </div>
+    <div class="photo-item" onclick="openLightbox(0)">
+  <img src="photos/photo1.jpg" alt="Photo 1" loading="lazy" />
+  <div class="photo-overlay">
+    <span class="photo-caption">白川鄉</span>
+  </div>
+</div>
     <div class="photo-placeholder">
       <div class="plus">+</div>
       <div class="ph-text">Add<br>Photo</div>
@@ -400,7 +402,7 @@
   // 格式：{ src: '相片路徑', caption: '標題' }
   const photos = [
     // 範例（取消 // 就可以用）：
-    // { src: 'photos/photo1.jpg', caption: 'Victoria Harbour' },
+     { src: 'photos/photo1.jpg', caption: '白川鄉' },
     // { src: 'photos/photo2.jpg', caption: 'Weekend Hike' },
   ];
 
