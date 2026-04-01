@@ -505,6 +505,7 @@
   </div>
 </section>
 
+
 <!-- FOOTER -->
 <footer>
   <span class="fcopy">© 2026 · WONG CHUN LAI · IT Support Engineer</span>
@@ -512,23 +513,11 @@
 </footer>
 
 <script>
-  // Mobile menu
   const toggle = document.getElementById('navToggle');
   const links  = document.getElementById('navLinks');
   toggle.addEventListener('click', () => links.classList.toggle('open'));
   function closeMenu() { links.classList.remove('open'); }
 
-  // Skill bar animation on scroll
-  const fills = document.querySelectorAll('.skill-fill');
-
-<script>
-  // Mobile menu
-  const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => links.classList.toggle('open'));
-  function closeMenu() { links.classList.remove('open'); }
-
-  // Skill bar animation on scroll
   const fills = document.querySelectorAll('.skill-fill');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
