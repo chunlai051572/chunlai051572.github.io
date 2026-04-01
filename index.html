@@ -6,10 +6,6 @@
   <title>Wong Chun Lai — IT Support Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    /* ============================================================
-       🎨 顏色設定區 — 你只需要改呢度！
-       改完儲存，刷新瀏覽器就即時睇到效果
-       ============================================================ */
     :root {
       --blue: #1d4ed8;        /* 主色（深藍）：按鈕、分隔線 */
       --blue-light: #2563eb;  /* 淺藍：標題標籤、hover 效果 */
@@ -24,32 +20,9 @@
       --overlay: rgba(255,255,255,0.82); /* 背景圖疊加層透明度 */
     }
 
-    /* ============================================================
-       🖼️ 背景圖設定教學
-       ============================================================
-
-       第一步：把你的背景圖片放在跟 index.html 同一個資料夾
-               建議圖片命名為 bg.jpg（或 bg.png）
-
-       第二步：在下面 body { } 入面，
-               把這行：  background: var(--bg);
-               改成：    background: url('bg.jpg') center/cover fixed;
-
-       第三步（推薦）：加半透明白色疊加，令文字更易閱讀：
-               background: linear-gradient(var(--overlay), var(--overlay)),
-                           url('bg.jpg') center/cover fixed;
-
-       💡 調整透明度：改 --overlay 的數值
-               rgba(255,255,255,0.70) = 70% 白色遮罩（圖片更明顯）
-               rgba(255,255,255,0.90) = 90% 白色遮罩（圖片較淡）
-
-       ============================================================ */
-
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      /* 🖼️ 微紋素背景（對角線紋）
-         想換？改 background-color 換底色，或改 rgba 數值調深淺 */
       background-color: #ffffff;
       background-image: repeating-linear-gradient(
         45deg,
@@ -269,20 +242,6 @@
   </style>
 </head>
 <body>
-
-<!-- ============================================================
-     ✏️ 內容修改指南
-     用 VS Code 或記事本打開此檔案，搜尋以下關鍵字直接改：
-
-     【個人資料】搜尋 "WONG CHUN LAI"          改你的名字
-     【職稱】    搜尋 "IT Support Engineer"     改你的職位
-     【電郵】    搜尋 "chunlai051572@gmail"     改你的電郵
-     【電話】    搜尋 "6418 3794"               改你的電話
-     【工作描述】搜尋 "exp-desc"                改工作內容
-     【技能%】   搜尋 'data-width="'            改技能百分比 (0-100)
-     【背景顏色】搜尋 "--bg:"                   改背景色
-     【背景圖片】搜尋 "方案B" 或 "方案C"        睇教學加背景圖
-     ============================================================ -->
 
 <!-- NAV -->
 <nav>
