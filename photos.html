@@ -317,10 +317,12 @@
     <span class="photo-caption">白川鄉</span>
   </div>
 </div>
-    <div class="photo-placeholder">
-      <div class="plus">+</div>
-      <div class="ph-text">Add<br>Photo</div>
-    </div>
+    <div class="photo-item" onclick="openLightbox(1)">
+  <img src="photos/photo2.jpeg" alt="Photo 1" loading="lazy" />
+  <div class="photo-overlay">
+    <span class="photo-caption">白川鄉</span>
+  </div>
+</div>
     <div class="photo-placeholder">
       <div class="plus">+</div>
       <div class="ph-text">Add<br>Photo</div>
@@ -403,7 +405,7 @@
   const photos = [
     // 範例（取消 // 就可以用）：
      { src: 'photos/photo1.jpeg', caption: '白川鄉' },
-    // { src: 'photos/photo2.jpg', caption: 'Weekend Hike' },
+     { src: 'photos/photo2.jpeg', caption: '白川鄉' },
   ];
 
   // 更新相片數量
