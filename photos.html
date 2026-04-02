@@ -342,42 +342,6 @@
 
   </div>
 
-  <!-- 上傳指南 -->
-  <div class="upload-guide">
-    <div class="guide-title">How to Add Your Photos</div>
-    <div class="guide-step">
-      <div class="guide-num">1</div>
-      <div class="guide-text">
-        在 GitHub repo 建立 <code class="guide-code">photos</code> 資料夾<br>
-        按 "Add file" → "Create new file" → 輸入 <code class="guide-code">photos/README.md</code> → Commit
-      </div>
-    </div>
-    <div class="guide-step">
-      <div class="guide-num">2</div>
-      <div class="guide-text">
-        進入 <code class="guide-code">photos</code> 資料夾 → "Add file" → "Upload files"<br>
-        上傳你的相片（建議每張唔超過 2MB）
-      </div>
-    </div>
-    <div class="guide-step">
-      <div class="guide-num">3</div>
-      <div class="guide-text">
-        編輯 <code class="guide-code">photos.html</code>，搜尋「ADD YOUR PHOTOS HERE」<br>
-        把 placeholder 格子換成你的相片 code，例如：<br>
-        <code class="guide-code">&lt;div class="photo-item" onclick="openLightbox(0)"&gt;</code><br>
-        <code class="guide-code">&nbsp;&nbsp;&lt;img src="photos/photo1.jpg" alt="My photo" /&gt;</code><br>
-        <code class="guide-code">&lt;/div&gt;</code>
-      </div>
-    </div>
-    <div class="guide-step">
-      <div class="guide-num">4</div>
-      <div class="guide-text">
-        Commit changes → 等 1-2 分鐘 → 相片就會出現！
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
