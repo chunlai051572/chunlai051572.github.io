@@ -277,40 +277,8 @@
     <span class="gallery-count" id="photoCount">0 PHOTOS</span>
   </div>
 
-  <!-- ============================================================
-       📸 ADD YOUR PHOTOS HERE
-       
-       每張相片照以下格式加：
-       
-       <div class="photo-item" onclick="openLightbox(0)">
-         <img src="photos/photo1.jpg" alt="描述" loading="lazy" />
-         <div class="photo-overlay">
-           <span class="photo-caption">你的標題</span>
-         </div>
-       </div>
-
-       注意：onclick 入面的數字要由 0 開始，每張相 +1
-       例如第一張係 0，第二張係 1，第三張係 2...
-
-       上傳相片步驟：
-       1. 在 GitHub repo 建立一個 "photos" 資料夾
-       2. 把相片上傳到 "photos" 資料夾
-       3. 把下面的 placeholder 換成你的相片
-       ============================================================ -->
-
   <div class="photo-grid" id="photoGrid">
 
-    <!-- 示範：加咗相片之後就係咁樣 -->
-    <!-- 
-    <div class="photo-item" onclick="openLightbox(0)">
-      <img src="photos/photo1.jpg" alt="Photo 1" loading="lazy" />
-      <div class="photo-overlay">
-        <span class="photo-caption">Victoria Harbour</span>
-      </div>
-    </div>
-    -->
-
-    <!-- 未加相片前顯示的格子（加咗相片就刪走呢啲） -->
     <div class="photo-item" onclick="openLightbox(0)">
   <img src="photos/photo1.jpeg" alt="Photo 1" loading="lazy" />
   <div class="photo-overlay">
@@ -353,8 +321,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="fcopy">© 2026 · WONG CHUN LAI</span>
-  <span class="fcopy">LIFE BEYOND WORK</span>
+  <span class="fcopy">© 2026 · WONG CHUN LAI ·IT Support Engineer</span>
 </footer>
 
 <script>
@@ -364,8 +331,6 @@
   toggle.addEventListener('click', () => links.classList.toggle('open'));
   function closeMenu() { links.classList.remove('open'); }
 
-  // Photo data — 加相片後在這裡加入對應資料
-  // 格式：{ src: '相片路徑', caption: '標題' }
   const photos = [
     // 範例（取消 // 就可以用）：
      { src: 'photos/photo1.jpeg', caption: '白川鄉' },
