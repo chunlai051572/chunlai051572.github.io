@@ -6,10 +6,7 @@
   <title>Life — Wong Chun Lai</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    /* ============================================================
-       🖼️ 相片頁設定
-       想加相片？搜尋「ADD YOUR PHOTOS HERE」跟住教學做
-       ============================================================ */
+
     :root {
       --blue: #1d4ed8;
       --blue-light: #2563eb;
@@ -286,27 +283,35 @@
   </div>
 </div>
     <div class="photo-item" onclick="openLightbox(1)">
-  <img src="photos/photo2.jpeg" alt="Photo 1" loading="lazy" />
+  <img src="photos/photo2.jpeg" alt="Photo 2" loading="lazy" />
   <div class="photo-overlay">
     <span class="photo-caption">白川鄉</span>
   </div>
 </div>
-    <div class="photo-placeholder">
-      <div class="plus">+</div>
-      <div class="ph-text">Add<br>Photo</div>
-    </div>
-    <div class="photo-placeholder">
-      <div class="plus">+</div>
-      <div class="ph-text">Add<br>Photo</div>
-    </div>
-    <div class="photo-placeholder">
-      <div class="plus">+</div>
-      <div class="ph-text">Add<br>Photo</div>
-    </div>
-    <div class="photo-placeholder">
-      <div class="plus">+</div>
-      <div class="ph-text">Add<br>Photo</div>
-    </div>
+    <div class="photo-item" onclick="openLightbox(1)">
+  <img src="photos/photo3.jpeg" alt="Photo 3" loading="lazy" />
+  <div class="photo-overlay">
+    <span class="photo-caption">日落</span>
+  </div>
+</div>
+   <div class="photo-item" onclick="openLightbox(1)">
+  <img src="photos/photo4.jpeg" alt="Photo 4" loading="lazy" />
+  <div class="photo-overlay">
+    <span class="photo-caption">彩虹</span>
+  </div>
+</div>
+       <div class="photo-item" onclick="openLightbox(1)">
+  <img src="photos/photo5.jpeg" alt="Photo 5" loading="lazy" />
+  <div class="photo-overlay">
+    <span class="photo-caption">MY DOG</span>
+  </div>
+</div>
+    <div class="photo-item" onclick="openLightbox(1)">
+  <img src="photos/photo6.jpeg" alt="Photo 6" loading="lazy" />
+  <div class="photo-overlay">
+    <span class="photo-caption">日落</span>
+  </div>
+</div>
 
   </div>
 
@@ -335,6 +340,10 @@
     // 範例（取消 // 就可以用）：
      { src: 'photos/photo1.jpeg', caption: '白川鄉' },
      { src: 'photos/photo2.jpeg', caption: '白川鄉' },
+     { src: 'photos/photo3.jpeg', caption: '日落' },
+     { src: 'photos/photo4.jpeg', caption: '彩虹' },
+     { src: 'photos/photo5.jpeg', caption: 'MY DOG' },
+     { src: 'photos/photo6.jpeg', caption: '日落' },
   ];
 
   // 更新相片數量
@@ -389,11 +398,9 @@
   function handleSwipe() {
     const swipeThreshold = 50; // 劃動超過 50 像素才觸發
     if (touchEndX < touchStartX - swipeThreshold) {
-      // 向左劃 -> 下一張
       changePhoto(1);
     }
     if (touchEndX > touchStartX + swipeThreshold) {
-      // 向右劃 -> 上一張
       changePhoto(-1);
     }
   }
