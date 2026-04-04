@@ -406,6 +406,34 @@
     if (e.key === 'ArrowRight') changePhoto(1);
     if (e.key === 'Escape') closeLightbox();
   });
+    // --- 新增：手機左右劃動切換功能 ---
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const lightboxElement = document.getElementById('lightbox');
+
+  lightboxElement.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  lightboxElement.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+
+  function handleSwipe() {
+    const swipeThreshold = 50; // 劃動超過 50 像素才觸發
+    if (touchEndX < touchStartX - swipeThreshold) {
+      // 向左劃 -> 下一張
+      changePhoto(1);
+    }
+    if (touchEndX > touchStartX + swipeThreshold) {
+      // 向右劃 -> 上一張
+      changePhoto(-1);
+    }
+  }
+  // --------------------------------
+
 </script>
 </body>
 </html>
